@@ -1,0 +1,3 @@
+module ActiveResourceExtensions
+  # Your code goes here...
+end
