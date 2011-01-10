@@ -7,7 +7,7 @@ module ActiveResourceExtensions
     def find_every(options)
       begin
         super
-      rescue => exception
+      rescue Errno::ECONNREFUSED, ActiveResource::TimeoutError => exception
         log_error(exception)
         []
       end
