@@ -1,3 +1,3 @@
 module ActiveResourceExtensions
-  # Your code goes here...
+  autoload :GracefulErrors, "active_resource_extensions/graceful_errors"
 end
