@@ -1,3 +1,5 @@
+require 'rails'
+
 module ActiveResourceExtensions
   module GracefulErrors
     private 
