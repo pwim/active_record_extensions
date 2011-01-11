@@ -5,8 +5,10 @@ module ActiveResourceExtensions
   def inherited(subclass)
     subclass.class_eval do
       class << self
-        include ActiveResourceExtensions::GracefulErrors
+        # Caching is included before GracefulErrors to avoid caching error
+        # results
         include ActiveResourceExtensions::Caching
+        include ActiveResourceExtensions::GracefulErrors
       end
     end
   end
