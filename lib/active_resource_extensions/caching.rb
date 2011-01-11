@@ -1,3 +1,4 @@
+# To use this, you need config.cache_classes to be set to true.
 module ActiveResourceExtensions
   module Caching
     private
