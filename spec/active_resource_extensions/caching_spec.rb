@@ -9,7 +9,13 @@ describe ActiveResourceExtensions::Caching do
 
   it "all should return the same value" do
     @resource.should_receive(:to_param).and_return("foo")
-    Rails.cache.should_receive(:fetch).with("foo", :expires_in => 1.hour)
+    Rails.cache.should_receive(:fetch).with("foo{}", :expires_in => 1.hour)
     @resource.all
+  end
+
+  it "should handle params" do
+    @resource.should_receive(:to_param).and_return("foo")
+    Rails.cache.should_receive(:fetch).with("foo{:params=>{:foo=>:bar}}", :expires_in => 1.hour)
+    @resource.all(:params => {:foo => :bar})
   end
 end
